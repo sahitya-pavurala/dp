@@ -1,5 +1,6 @@
 package gfg.simple;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 
@@ -16,12 +17,20 @@ public class CoinChange {
         if (n < 0)
             return 0;
 
-        if(m <= 0 && n > 0)
+        if(m <= 0)
             return 0;
 
         else return compute(arr, m -1 , n) + compute(arr, m, n - arr[m-1]);
 
     }
+
+//    private static ArrayList<int[]> computeCombinations(int[] arr, int n, int m, ArrayList<Integer> temp){
+//
+//
+//
+//
+//    }
+
 
 
     public static void main(String args[]) {

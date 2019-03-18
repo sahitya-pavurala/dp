@@ -1,5 +1,7 @@
 package gfg.optimal;
 
+
+
 /**
  * Created by sahityapavurala on 9/29/17.
  */
@@ -40,9 +42,36 @@ public class LongestIncreasingSubsequence_1 {
         return len;
     }
 
+    public static int compute_2(int[] arr){
+
+        int[] lis = new int[arr.length];
+
+        for(int i=0; i < lis.length;i++)
+            lis[i] = 1;
+
+        for (int i = 1; i< arr.length; i++){
+            for(int j =0; j < arr.length; j++){
+
+                if (arr[i] > arr[j] && lis[i] < lis[j]+1)
+                    lis[i] = lis[j] + 1;
+            }
+        }
+
+        int result = 0;
+        for(int num : lis)
+            result = Math.max(result, num);
+
+        return result;
+
+    }
+
+
+
+
     public static void main(String[] args){
 
         int[] input = {8, 9, 11, 6, 12, 14};
         System.out.println(compute(input));
+        System.out.println(compute_2(input));
     }
 }

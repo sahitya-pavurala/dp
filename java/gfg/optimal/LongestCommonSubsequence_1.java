@@ -32,7 +32,7 @@ public class LongestCommonSubsequence_1 {
             }
         }
 
-        return new StringBuilder(res).reverse().toString();
+        return res;
 
     }
     public static void main(String[] args){

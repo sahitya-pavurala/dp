@@ -24,9 +24,6 @@ public class ClosestPalindrome {
 
         StringBuilder suffix = new StringBuilder();
         for(int i = 0; i < prefix.length(); i++){
-            if(prefix.charAt(i) == numStr.charAt(numStr.length()-1-i))
-                suffix.append(prefix.charAt(i));
-            else
                 suffix.append(prefix.charAt(i));
         }
 

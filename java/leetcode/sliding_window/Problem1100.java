@@ -1,6 +1,6 @@
 package leetcode.sliding_window;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Given a string S, return the number of substrings of length K with no repeated characters.
@@ -12,32 +12,23 @@ public class Problem1100 {
         if(k > S.length())
             return 0;
 
-        HashMap<Character, Integer> checker = new HashMap<>();
+        HashSet<Character> checker = new HashSet<>();
 
-        int left = 0;
-        int right = 0;
+
+        int start = 0;
+        int end = 0;
         int result = 0;
 
-        for(int i = 0; i < S.length(); i++){
-
-            if(checker.size() == k) {
-                result++;
-            }
-
-            char current = S.charAt(i);
-            if(checker.containsKey(current)){
-                left = checker.get(current) + 1;
-                checker.put(current,i);
-            }
-            else
-                checker.put(current, i);
-        }
-
-        while(right < S.length()){
-            char current = S.charAt(right);
-
-            if (checker.containsKey(current)) {
-
+       while (end < S.length()){
+            char curr = S.charAt(end);
+            if(!checker.contains(curr) && checker.size() < k){
+                end++;
+                checker.add(curr);
+                if(checker.size() == k)
+                    result += 1;
+            } else {
+                checker.remove(S.charAt(start));
+                start++;
             }
         }
 
@@ -45,6 +36,6 @@ public class Problem1100 {
     }
 
     public static void main(String[] args) {
-        System.out.println(solution("haveafunonleetcode", 5));
+        System.out.println(solution("havefunonleetcode", 5));
     }
 }

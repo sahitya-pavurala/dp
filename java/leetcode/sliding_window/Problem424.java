@@ -1,7 +1,5 @@
 package leetcode.sliding_window;
 
-import sun.nio.cs.ext.MacArabic;
-
 /**
  * Given a string s that consists of only uppercase English letters, you can perform at most k operations on that string.
  * In one operation, you can choose any character of the string and change it to any other uppercase English character.
